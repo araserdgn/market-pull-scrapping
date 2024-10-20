@@ -14,31 +14,31 @@ import pandas as pd
 class GoogleMapsApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Google Haritalar Arama Botu")
+        self.root.title("Google Haritalarda İşletme Arama Botu")
         self.root.geometry("640x680")
-        self.root.configure(bg="#FFFFFF")
+        self.root.configure(bg="#ffd198")
 
         # Üst tarafta arama kutusu ve veri çekme seçenekleri
-        self.frame_top = tk.Frame(self.root, bg="#FFFFFF", bd=10, relief=tk.FLAT)
+        self.frame_top = tk.Frame(self.root, bg="#ffd198", bd=10, relief=tk.FLAT)
         self.frame_top.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.2)
 
-        self.label_search = tk.Label(self.frame_top, text="Aramak İstediğiniz Kelime:", bg="#FFFFFF", font=("Helvetica", 10))
-        self.label_search.grid(row=0, column=0, padx=5, pady=5, sticky="w")
+        self.label_search = tk.Label(self.frame_top, text="Aramak İstediğiniz Kelime:", bg="#ffd198", font=("Helvetica", 10))
+        self.label_search.grid(row=0, column=1, padx=5, pady=5, sticky="w")
         
-        self.entry_search = tk.Entry(self.frame_top, font=("Helvetica", 10), bd=5, relief=tk.FLAT, fg="black", bg="#F8D8E8")
-        self.entry_search.grid(row=0, column=1, padx=5, pady=5)
+        self.entry_search = tk.Entry(self.frame_top, font=("Helvetica", 10), bd=5, relief=tk.FLAT, fg="black", bg="#a99d9d")
+        self.entry_search.grid(row=0, column=2, padx=5, pady=5)
         
-        self.label_count = tk.Label(self.frame_top, text="Çekilecek İşletme Sayısı:", bg="#FFFFFF", font=("Helvetica", 10))
-        self.label_count.grid(row=1, column=0, padx=5, pady=5, sticky="w")
+        self.label_count = tk.Label(self.frame_top, text="Çekilecek İşletme Sayısı:", bg="#ffd198", font=("Helvetica", 10))
+        self.label_count.grid(row=1, column=1, padx=5, pady=5, sticky="w")
         
-        self.entry_count = tk.Entry(self.frame_top, font=("Helvetica", 10), bd=5, relief=tk.FLAT, fg="black", bg="#F8D8E8")
-        self.entry_count.grid(row=1, column=1, padx=5, pady=5)
+        self.entry_count = tk.Entry(self.frame_top, font=("Helvetica", 10), bd=5, relief=tk.FLAT, fg="black", bg="#a99d9d")
+        self.entry_count.grid(row=1, column=2, padx=5, pady=5)
 
-        self.button_start = tk.Button(self.frame_top, text="Verileri Çek", command=self.start_scraping_thread, font=("Helvetica", 10), bg="#FF0000", fg="#FFFFFF", relief=tk.RAISED, padx=5, pady=5)
-        self.button_start.grid(row=0, column=2, rowspan=2, padx=10, pady=5)
+        self.button_start = tk.Button(self.frame_top, text="Verileri Çek", command=self.start_scraping_thread, font=("Helvetica", 10), bg="#0c9191", fg="#FFFFFF", relief=tk.RAISED, padx=5, pady=5)
+        self.button_start.grid(row=0, column=3, padx=10, pady=5)
 
         self.button_export = tk.Button(self.frame_top, text="Excel'e Aktar", command=self.export_to_excel, font=("Helvetica", 10), bg="#008000", fg="#FFFFFF", relief=tk.RAISED, padx=5, pady=5)
-        self.button_export.grid(row=2, column=2, padx=10, pady=5)
+        self.button_export.grid(row=0, column=4, padx=10, pady=5)
 
         # Alt tarafta çekilen verileri göstermek için tablo
         self.frame_bottom = tk.Frame(self.root, bg="#FFFFFF", bd=10, relief=tk.FLAT)
